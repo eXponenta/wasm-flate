@@ -8,7 +8,7 @@ edition = "2018"
 crate-type = ["cdylib", "rlib"]
 
 [features]
-default = ["system", "strings"]
+default = ["browser"]
 system = ["wee_alloc"]
 browser = ["wee_alloc"]
 strings = ["base64"]
@@ -40,3 +40,6 @@ wasm-bindgen-test = "0.2"
 # opt-level = 3
 opt-level = 'z'
 lto = true
+
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = ["-Oz", "--enable-mutable-globals"]
